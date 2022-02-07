@@ -9,10 +9,16 @@ h1 {
 }
 
 div {
-    margin: 2rem;
+    margin: 2%;
 }
 
 p {
     font-size: 1.2rem;
     font-weight: bold;
+}
+
+img {
+    padding: 1%;
+    width: 10%;
+    height: 10%;
 }
