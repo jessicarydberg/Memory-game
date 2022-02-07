@@ -1,15 +1,6 @@
 body {
     margin: 3%;
-}
-
-h1 {
-    font-size: 3rem;
-    margin: 2rem;
-    text-align: center;
-}
-
-div {
-    margin: 2rem;
+    background: darkslategrey;
 }
 
 p {
@@ -17,15 +8,33 @@ p {
     font-weight: bold;
 }
 
+/* Header */
+h1 {
+    font-size: 3rem;
+    text-align: center;
+}
+
+/* Memory cards */
+
 img {
     width: 102%;
     border-color: black;
     border-style: solid;
     border-radius: 5%;
     border-width: 0.25rem;
-    height: 14rem;
+    height: 9.5rem;
 }
 
 #images {
     column-count: 7;
+}
+
+/* Score area */
+
+#score {
+    text-align: center;
+}
+
+#score p {
+    
 }
