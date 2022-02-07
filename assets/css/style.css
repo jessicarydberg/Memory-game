@@ -1,6 +1,17 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
 body {
-    margin: 3%;
+    margin: 2%;
     background: darkslategrey;
+}
+
+div, header {
+    padding: 1rem;
 }
 
 p {
@@ -10,8 +21,15 @@ p {
 
 /* Header */
 h1 {
-    font-size: 3rem;
-    text-align: center;
+    font-size: 4rem;
+    float: right;
+    position: relative;
+}
+
+header p {
+    float: left;
+    width: 75%;
+    line-height: 1.5rem;
 }
 
 /* Memory cards */
@@ -22,19 +40,22 @@ img {
     border-style: solid;
     border-radius: 5%;
     border-width: 0.25rem;
-    height: 9.5rem;
+    height: 11rem;
 }
 
 #images {
     column-count: 7;
+    clear: both;
 }
 
 /* Score area */
 
 #score {
     text-align: center;
+    vertical-align: middle;
+    padding-top: 1rem;
 }
 
 #score p {
-    
+    padding-top: 1rem;
 }
