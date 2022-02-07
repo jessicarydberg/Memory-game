@@ -9,7 +9,7 @@ h1 {
 }
 
 div {
-    margin: 2%;
+    margin: 2rem;
 }
 
 p {
@@ -18,7 +18,14 @@ p {
 }
 
 img {
-    padding: 1%;
-    width: 10%;
-    height: 10%;
+    width: 102%;
+    border-color: black;
+    border-style: solid;
+    border-radius: 5%;
+    border-width: 0.25rem;
+    height: 14rem;
+}
+
+#images {
+    column-count: 7;
 }
