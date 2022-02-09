@@ -3,7 +3,7 @@
  */
 
 document.addEventListener("DOMContentLoaded", function() {
-
+    
     playGame();
 
     let button = document.getElementsByTagName("input");
@@ -16,6 +16,12 @@ document.addEventListener("DOMContentLoaded", function() {
  * Starts a new game with random position of the images.
  */
 function playGame() {
+    //Shows the backside of all the cards
+    let cards = document.getElementById("back-side").children;
+    for (let card of cards) {
+        card.setAttribute("src", "assets/images/card.jpg");
+    }
+
     //Create an array of 20 random unique numbers
     let arrayRandom = []
     while (arrayRandom.length < 20) {
@@ -47,7 +53,10 @@ function playGame() {
  * Turns the card clicked on.
  */
 function turnCard(newFrontCards, i) {
-    
+    console.log(newFrontCards);
+    let source = newFrontCards[i].getAttribute("src")
+    //console.log(source)
+    document.getElementsByTagName("img")[i].setAttribute("src", source);
 }
 
 /**
