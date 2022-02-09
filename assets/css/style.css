@@ -55,7 +55,7 @@ input {
     clear: both;
 }
 
-.frontside {
+#front-side {
     display: none;
 }
 

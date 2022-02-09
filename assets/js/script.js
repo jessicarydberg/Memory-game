@@ -3,33 +3,51 @@
  */
 
 document.addEventListener("DOMContentLoaded", function() {
-    let cards = document.getElementsByTagName("img");
+
+    playGame();
+
     let button = document.getElementsByTagName("input");
-
-    for (let card of cards) {
-        card.addEventListener("click", function() {
-            turnCard();
-        })
-    }
-
     button[0].addEventListener("click", function() {
         playGame();
     })
-
 });
 
 /**
  * Starts a new game with random position of the images.
  */
 function playGame() {
-    alert("hello from inside the playGame function!");
+    //Create an array of 20 random unique numbers
+    let arrayRandom = []
+    while (arrayRandom.length < 20) {
+        let number = Math.floor(Math.random()*20);
+        if (arrayRandom.includes(number) === false) {
+            arrayRandom.push(number);
+        }
+    }
+
+    //With help of random array =
+    //Create an array of the images on the front side of the card, with random order.
+    let frontCards = document.getElementById("front-side").children;
+    let newFrontCards = []
+    for(let i = 0; i < 20; i++) {
+        newFrontCards.push(frontCards[arrayRandom[i]])
+    }
+
+    //Add eventlistener "click" to all the backside cards and call turnCard function.
+    let backCards = document.getElementById("back-side").children;
+    for (let backCard of backCards) {
+        backCard.addEventListener("click", function() {
+            let i = backCard.id - 1;
+            turnCard(newFrontCards, i);
+        })
+    }
 }
 
 /**
  * Turns the card clicked on.
  */
-function turnCard() {
-    alert("hello from inside the turnCard function!");
+function turnCard(newFrontCards, i) {
+    
 }
 
 /**
