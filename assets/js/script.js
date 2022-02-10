@@ -1,21 +1,23 @@
 /**
  * Get the image and button elements and add eventlisteners
+ * Start new game
  */
 
 document.addEventListener("DOMContentLoaded", function() {
-    
     playGame();
 
     let button = document.getElementsByTagName("input");
     button[0].addEventListener("click", function() {
         playGame();
     })
+
 });
 
 /**
  * Starts a new game with random position of the images.
  */
 function playGame() {
+    
     //Shows the backside of all the cards
     let cards = document.getElementById("back-side").children;
     for (let card of cards) {
@@ -39,31 +41,50 @@ function playGame() {
         newFrontCards.push(frontCards[arrayRandom[i]])
     }
 
-    //Add eventlistener "click" to all the backside cards and call turnCard function.
+    let turnedCards = []
     let backCards = document.getElementById("back-side").children;
     for (let backCard of backCards) {
         backCard.addEventListener("click", function() {
             let i = backCard.id - 1;
-            turnCard(newFrontCards, i);
+            turnCard(newFrontCards, i, turnedCards);
         })
-    }
+    }    
 }
 
 /**
  * Turns the card clicked on.
  */
-function turnCard(newFrontCards, i) {
-    console.log(newFrontCards);
+function turnCard(newFrontCards, i, turnedCards) {
+    console.log(newFrontCards[i])
     let source = newFrontCards[i].getAttribute("src")
-    //console.log(source)
+    console.log(source)
     document.getElementsByTagName("img")[i].setAttribute("src", source);
+    turnedCards.push(newFrontCards[i]);
+
+    if (turnedCards.length === 2) {
+        checkPair(turnedCards);
+    }
 }
 
 /**
  * Checks if the turned cards are a pair or not.
  */
-function checkPair() {
-        alert("hello from inside the checkPair function!");
+function checkPair(turnedCards) {
+        console.log(turnedCards);
+        if (turnedCards[0] === turnedCards[1]) {
+            alert("Congratulations!")
+        } else {
+            alert("oh to bad!")
+            console.group(turnedCards[0])
+            console.group(turnedCards[1])
+            for (let i = 0; i < 2; i++) {
+                turnedCards[i].getAttribute("src", "assets/images/card.jpg");
+            }
+            console.group(turnedCards[0])
+            console.group(turnedCards[1])
+
+            turnedCards.splice(0, 2);
+        }
 }
 
 /**
